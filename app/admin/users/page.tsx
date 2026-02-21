@@ -15,17 +15,17 @@ async function checkAuth() {
 }
 
 async function getUsers() {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/admin/users`, {
-    cache: 'no-store'
-  })
-  
-  if (!response.ok) {
-    console.error('[v0] Error fetching users:', response.statusText)
+  const { data: users, error } = await supabase
+    .from('users')
+    .select('*')
+    .order('created_at', { ascending: false })
+
+  if (error) {
+    console.error('[v0] Error fetching users:', error)
     return []
   }
-  
-  const data = await response.json()
-  return data.users || []
+
+  return users || []
 }
 
 export default async function AdminUsers() {
