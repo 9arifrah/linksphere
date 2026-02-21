@@ -94,4 +94,6 @@ Desktop.ini
 # MISC
 # ============================================
 .eslintcache
-.stylelintcache
+.stylelintcache""  
+"# Claude AI local settings"  
+".claude/" 
