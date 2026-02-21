@@ -117,3 +117,17 @@ export function calculatePasswordStrength(password: string): number {
 
   return Math.min(score, 4)
 }
+
+/**
+ * Format Zod error to extract clean error message
+ * This prevents stringified JSON errors from being shown to users
+ */
+export function formatZodError(error: unknown): string {
+  if (error instanceof z.ZodError) {
+    return error.errors[0]?.message || 'Validasi gagal'
+  }
+  if (error instanceof Error) {
+    return error.message
+  }
+  return 'Terjadi kesalahan'
+}

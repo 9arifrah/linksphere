@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { supabase } from '@/lib/supabase'
 import { setUserSession } from '@/lib/auth'
-import { loginSchema } from '@/lib/validation'
+import { loginSchema, formatZodError } from '@/lib/validation'
 import { rateLimitMiddleware, getClientIp } from '@/lib/rate-limit'
 import bcrypt from 'bcryptjs'
 
@@ -26,12 +26,10 @@ export async function POST(request: NextRequest) {
     try {
       loginSchema.parse({ email, password })
     } catch (error) {
-      if (error instanceof Error) {
-        return NextResponse.json(
-          { error: error.message },
-          { status: 400 }
-        )
-      }
+      return NextResponse.json(
+        { error: formatZodError(error) },
+        { status: 400 }
+      )
     }
 
     // Check if user exists
