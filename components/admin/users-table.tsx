@@ -86,12 +86,12 @@ export function UsersTable({ users }: UsersTableProps) {
   }
   return (
     <>
-      <Card>
-        <CardHeader>
+      <Card className="shadow-slack-md border-slate-700/50 bg-slate-800/50 backdrop-blur">
+        <CardHeader className="border-b border-slate-700/50">
           <CardTitle className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
             <div className="flex items-center gap-2">
-              <UserIcon className="h-4 w-4 sm:h-5 sm:w-5" />
-              <span className="text-sm sm:text-base">Daftar Pengguna ({users.length})</span>
+              <UserIcon className="h-4 w-4 sm:h-5 sm:w-5 text-slate-300" />
+              <span className="text-white text-sm sm:text-base">Daftar Pengguna ({users.length})</span>
             </div>
             <Button onClick={handleAdd} className="bg-blue-600 hover:bg-blue-700 text-xs sm:text-sm">
               <Plus className="h-3.5 w-3.5 mr-1 sm:h-4 sm:w-4 sm:mr-2" />
@@ -106,29 +106,29 @@ export function UsersTable({ users }: UsersTableProps) {
           {users.map((user: any) => (
             <div
               key={user.id}
-              className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 rounded-lg border border-slate-200 p-3 sm:p-4 hover:bg-slate-50"
+              className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 rounded-lg border border-slate-700/50 p-3 sm:p-4 hover:bg-slate-700/50 transition-colors"
             >
               <div className="flex-1 space-y-0.5 sm:space-y-1 min-w-0">
-                <div className="font-medium text-slate-900 truncate text-xs sm:text-sm">
+                <div className="font-medium text-white truncate text-xs sm:text-sm">
                   {user.display_name || 'Tanpa Nama'}
                 </div>
-                <div className="text-[10px] sm:text-xs text-slate-500 break-all">{user.email}</div>
-                <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[10px] sm:text-sm text-slate-600">
+                <div className="text-[10px] sm:text-xs text-slate-400 break-all">{user.email}</div>
+                <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[10px] sm:text-sm text-slate-400">
                   {user.custom_slug ? (
                     <a
                       href={`/u/${user.custom_slug}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-blue-600 hover:underline truncate"
+                      className="flex items-center gap-1 text-blue-400 hover:text-blue-300 hover:underline truncate"
                     >
                       <ExternalLink className="h-3 w-3 sm:h-3.5 sm:w-3.5 flex-shrink-0" />
                       <span className="truncate">{user.custom_slug}</span>
                     </a>
                   ) : (
-                    <span className="text-slate-400">Belum ada slug</span>
+                    <span className="text-slate-500">Belum ada slug</span>
                   )}
-                  <span className="hidden sm:inline">•</span>
-                  <span>Bergabung {new Date(user.created_at).toLocaleDateString('id-ID')}</span>
+                  <span className="hidden sm:inline text-slate-600">•</span>
+                  <span className="text-slate-500">Bergabung {new Date(user.created_at).toLocaleDateString('id-ID')}</span>
                 </div>
               </div>
               <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 sm:flex-nowrap">
@@ -140,7 +140,7 @@ export function UsersTable({ users }: UsersTableProps) {
                     variant="ghost"
                     size="icon"
                     onClick={() => handleEdit(user)}
-                    className="h-8 w-8 sm:h-9 sm:w-9 text-slate-600 hover:text-slate-900"
+                    className="h-8 w-8 sm:h-9 sm:w-9 text-slate-400 hover:text-white hover:bg-slate-700/50"
                   >
                     <Edit className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                   </Button>
@@ -148,7 +148,7 @@ export function UsersTable({ users }: UsersTableProps) {
                     variant="ghost"
                     size="icon"
                     onClick={() => confirmDelete(user)}
-                    className="h-8 w-8 sm:h-9 sm:w-9 text-red-600 hover:text-red-700"
+                    className="h-8 w-8 sm:h-9 sm:w-9 text-red-400 hover:text-red-300 hover:bg-red-900/30"
                   >
                     <Trash2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                   </Button>
@@ -158,9 +158,9 @@ export function UsersTable({ users }: UsersTableProps) {
           ))}
 
           {users.length === 0 && (
-            <div className="rounded-lg border-2 border-dashed border-slate-300 p-8 sm:p-12 text-center">
-              <UserIcon className="mx-auto mb-3 sm:mb-4 h-10 w-10 sm:h-12 sm:w-12 text-slate-400" />
-              <p className="text-xs sm:text-sm text-slate-500">Belum ada pengguna</p>
+            <div className="rounded-lg border-2 border-dashed border-slate-700/50 bg-slate-700/30 p-8 sm:p-12 text-center">
+              <UserIcon className="mx-auto mb-3 sm:mb-4 h-10 w-10 sm:h-12 sm:w-12 text-slate-500" />
+              <p className="text-xs sm:text-sm text-slate-400">Belum ada pengguna</p>
             </div>
           )}
         </div>
@@ -176,10 +176,10 @@ export function UsersTable({ users }: UsersTableProps) {
 
       {/* Delete Confirmation Dialog */}
       <AlertDialog open={deleteOpen} onOpenChange={setDeleteOpen}>
-        <AlertDialogContent>
+        <AlertDialogContent className="bg-slate-800 border-slate-700/50">
           <AlertDialogHeader>
-            <AlertDialogTitle>Hapus User?</AlertDialogTitle>
-            <AlertDialogDescription>
+            <AlertDialogTitle className="text-white">Hapus User?</AlertDialogTitle>
+            <AlertDialogDescription className="text-slate-300">
               Apakah Anda yakin ingin menghapus user "{userToDelete?.email}"? 
               Tindakan ini tidak dapat dibatalkan dan semua data terkait user ini akan dihapus.
             </AlertDialogDescription>

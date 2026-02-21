@@ -43,9 +43,9 @@ export function GrowthChart({ links, users }: GrowthChartProps) {
     }, [links, users])
 
     return (
-        <Card>
+        <Card className="shadow-slack-md border-slate-700/50 bg-slate-800/50 backdrop-blur">
             <CardHeader>
-                <CardTitle className="text-sm font-medium text-slate-600">
+                <CardTitle className="text-sm font-medium text-slate-300">
                     Tren Pertumbuhan (7 Hari Terakhir)
                 </CardTitle>
             </CardHeader>
@@ -55,36 +55,37 @@ export function GrowthChart({ links, users }: GrowthChartProps) {
                         <AreaChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                             <defs>
                                 <linearGradient id="colorLinks" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="5%" stopColor="#2563eb" stopOpacity={0.3} />
-                                    <stop offset="95%" stopColor="#2563eb" stopOpacity={0} />
+                                    <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3} />
+                                    <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
                                 </linearGradient>
                                 <linearGradient id="colorUsers" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="5%" stopColor="#16a34a" stopOpacity={0.3} />
-                                    <stop offset="95%" stopColor="#16a34a" stopOpacity={0} />
+                                    <stop offset="5%" stopColor="#22c55e" stopOpacity={0.3} />
+                                    <stop offset="95%" stopColor="#22c55e" stopOpacity={0} />
                                 </linearGradient>
                             </defs>
                             <XAxis
                                 dataKey="dateStr"
-                                tick={{ fontSize: 12 }}
+                                tick={{ fontSize: 12, fill: '#94a3b8' }}
                                 tickLine={false}
                                 axisLine={false}
                             />
                             <YAxis
-                                tick={{ fontSize: 12 }}
+                                tick={{ fontSize: 12, fill: '#94a3b8' }}
                                 tickLine={false}
                                 axisLine={false}
                                 allowDecimals={false}
                             />
-                            <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="#e2e8f0" />
+                            <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="#334155" />
                             <Tooltip
-                                contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-                                labelStyle={{ fontWeight: 'bold', color: '#1e293b' }}
+                                contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)', backgroundColor: '#1e293b', color: '#ffffff' }}
+                                labelStyle={{ fontWeight: 'bold', color: '#ffffff' }}
+                                itemStyle={{ color: '#e2e8f0' }}
                             />
                             <Area
                                 type="monotone"
                                 dataKey="links"
                                 name="Link Baru"
-                                stroke="#2563eb"
+                                stroke="#3b82f6"
                                 fillOpacity={1}
                                 fill="url(#colorLinks)"
                                 strokeWidth={2}
@@ -93,7 +94,7 @@ export function GrowthChart({ links, users }: GrowthChartProps) {
                                 type="monotone"
                                 dataKey="users"
                                 name="User Baru"
-                                stroke="#16a34a"
+                                stroke="#22c55e"
                                 fillOpacity={1}
                                 fill="url(#colorUsers)"
                                 strokeWidth={2}
