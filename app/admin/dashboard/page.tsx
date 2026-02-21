@@ -113,18 +113,18 @@ export default async function AdminDashboard() {
       <div className="space-y-6 overflow-x-hidden animate-fade-in">
         {/* Header */}
         <div className="animate-scale-in">
-          <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
+          <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white to-slate-200 bg-clip-text text-transparent">
             Dashboard Admin
           </h1>
-          <p className="text-sm sm:text-base text-slate-600 mt-1">
+          <p className="text-sm sm:text-base text-slate-300 mt-1">
             Kelola semua link, kategori, dan user di platform
           </p>
         </div>
 
         {/* Stats Cards */}
-        <Card className="shadow-slack-md border-slate-200/60 animate-scale-in" style={{ animationDelay: '0.1s' }}>
-          <CardHeader className="border-b border-slate-100">
-            <CardTitle className="text-lg font-semibold text-slate-900">Statistik Platform</CardTitle>
+        <Card className="shadow-slack-md border-slate-700/50 bg-slate-800/50 backdrop-blur animate-scale-in" style={{ animationDelay: '0.1s' }}>
+          <CardHeader className="border-b border-slate-700/50">
+            <CardTitle className="text-lg font-semibold text-white">Statistik Platform</CardTitle>
           </CardHeader>
           <CardContent className="pt-6">
             <StatsCards stats={stats} />
@@ -137,9 +137,9 @@ export default async function AdminDashboard() {
         </div>
 
         {/* Recent Links */}
-        <Card className="shadow-slack-md border-slate-200/60 animate-scale-in" style={{ animationDelay: '0.3s' }}>
-          <CardHeader className="border-b border-slate-100">
-            <CardTitle className="text-lg font-semibold text-slate-900">Link Terbaru</CardTitle>
+        <Card className="shadow-slack-md border-slate-700/50 bg-slate-800/50 backdrop-blur animate-scale-in" style={{ animationDelay: '0.3s' }}>
+          <CardHeader className="border-b border-slate-700/50">
+            <CardTitle className="text-lg font-semibold text-white">Link Terbaru</CardTitle>
           </CardHeader>
           <CardContent className="pt-6">
             <LinksTable links={links} categories={categories} />

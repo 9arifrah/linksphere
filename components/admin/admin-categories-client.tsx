@@ -158,8 +158,8 @@ export function AdminCategoriesClient({ initialCategories }: AdminCategoriesClie
       <div className="space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Kategori</h1>
-            <p className="mt-1 sm:mt-2 text-sm sm:text-base text-slate-600">
+            <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white to-slate-200 bg-clip-text text-transparent">Kategori</h1>
+            <p className="mt-1 sm:mt-2 text-sm sm:text-base text-slate-300">
               Kelola kategori untuk mengorganisir link
             </p>
           </div>
@@ -190,7 +190,7 @@ export function AdminCategoriesClient({ initialCategories }: AdminCategoriesClie
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
                     Icon
                   </label>
                   <IconPicker
@@ -202,7 +202,7 @@ export function AdminCategoriesClient({ initialCategories }: AdminCategoriesClie
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">
+                  <label className="block text-sm font-medium text-slate-300 mb-1">
                     Nama Kategori
                   </label>
                   <Input
@@ -217,7 +217,7 @@ export function AdminCategoriesClient({ initialCategories }: AdminCategoriesClie
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">
+                  <label className="block text-sm font-medium text-slate-300 mb-1">
                     Deskripsi (Opsional)
                   </label>
                   <Textarea
@@ -234,7 +234,7 @@ export function AdminCategoriesClient({ initialCategories }: AdminCategoriesClie
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">
+                  <label className="block text-sm font-medium text-slate-300 mb-1">
                     Urutan
                   </label>
                   <Input
@@ -310,11 +310,11 @@ export function AdminCategoriesClient({ initialCategories }: AdminCategoriesClie
         {/* Categories Table */}
         {loading ? (
           <div className="flex items-center justify-center py-12">
-            <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+            <Loader2 className="h-8 w-8 animate-spin text-blue-400" />
           </div>
         ) : categories.length === 0 ? (
-          <div className="rounded-lg border-2 border-dashed border-slate-300 bg-white p-12 text-center">
-            <p className="text-slate-500 mb-4">Belum ada kategori</p>
+          <div className="rounded-lg border-2 border-dashed border-slate-700 bg-slate-800/50 backdrop-blur p-12 text-center">
+            <p className="text-slate-400 mb-4">Belum ada kategori</p>
             <Button
               onClick={() => handleOpenDialog()}
               className="gap-2 bg-blue-600 hover:bg-blue-700"
@@ -324,10 +324,10 @@ export function AdminCategoriesClient({ initialCategories }: AdminCategoriesClie
             </Button>
           </div>
         ) : (
-          <div className="rounded-lg border border-slate-200 bg-white overflow-hidden overflow-x-auto">
+          <div className="rounded-lg border border-slate-700/50 bg-slate-800/50 backdrop-blur overflow-hidden overflow-x-auto">
             <Table>
               <TableHeader>
-                <TableRow className="bg-slate-50">
+                <TableRow className="bg-slate-700/50">
                   <TableHead className="whitespace-nowrap py-2 sm:py-3 pr-2 sm:pr-4">Icon</TableHead>
                   <TableHead className="whitespace-nowrap py-2 sm:py-3 pr-2 sm:pr-4">Nama Kategori</TableHead>
                   <TableHead className="hidden md:table-cell whitespace-nowrap py-2 sm:py-3 pr-2 sm:pr-4">Deskripsi</TableHead>
@@ -337,15 +337,15 @@ export function AdminCategoriesClient({ initialCategories }: AdminCategoriesClie
               </TableHeader>
               <TableBody>
                 {categories.map((category) => (
-                  <TableRow key={category.id} className="hover:bg-slate-50">
+                  <TableRow key={category.id} className="hover:bg-slate-700/50">
                     <TableCell className="text-xl sm:text-2xl whitespace-nowrap py-2 sm:py-4 pr-2 sm:pr-4">{category.icon}</TableCell>
-                    <TableCell className="font-medium text-slate-900 whitespace-nowrap text-xs sm:text-sm py-2 sm:py-4 pr-2 sm:pr-4">
+                    <TableCell className="font-medium text-white whitespace-nowrap text-xs sm:text-sm py-2 sm:py-4 pr-2 sm:pr-4">
                       {category.name}
                     </TableCell>
-                    <TableCell className="hidden md:table-cell text-slate-600 max-w-xs truncate text-[10px] sm:text-xs py-2 sm:py-4 pr-2 sm:pr-4">
+                    <TableCell className="hidden md:table-cell text-slate-400 max-w-xs truncate text-[10px] sm:text-xs py-2 sm:py-4 pr-2 sm:pr-4">
                       {category.description || '-'}
                     </TableCell>
-                    <TableCell className="hidden sm:table-cell text-right text-slate-600 whitespace-nowrap text-[10px] sm:text-xs py-2 sm:py-4 pr-2 sm:pr-4">
+                    <TableCell className="hidden sm:table-cell text-right text-slate-400 whitespace-nowrap text-[10px] sm:text-xs py-2 sm:py-4 pr-2 sm:pr-4">
                       {category.sort_order}
                     </TableCell>
                     <TableCell className="text-right whitespace-nowrap py-2 sm:py-4 pr-2 sm:pr-4">
@@ -354,7 +354,7 @@ export function AdminCategoriesClient({ initialCategories }: AdminCategoriesClie
                           variant="ghost"
                           size="icon"
                           onClick={() => handleOpenDialog(category)}
-                          className="text-blue-600 hover:text-blue-700 hover:bg-blue-50 h-8 w-8 sm:h-9 sm:w-9"
+                          className="text-blue-400 hover:text-blue-300 hover:bg-blue-900/30 h-8 w-8 sm:h-9 sm:w-9"
                         >
                           <Edit2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                         </Button>
@@ -362,7 +362,7 @@ export function AdminCategoriesClient({ initialCategories }: AdminCategoriesClie
                           variant="ghost"
                           size="icon"
                           onClick={() => setDeleteConfirm(category.id)}
-                          className="text-red-600 hover:text-red-700 hover:bg-red-50 h-8 w-8 sm:h-9 sm:w-9"
+                          className="text-red-400 hover:text-red-300 hover:bg-red-900/30 h-8 w-8 sm:h-9 sm:w-9"
                         >
                           <Trash2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                         </Button>

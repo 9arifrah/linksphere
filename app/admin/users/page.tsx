@@ -37,10 +37,10 @@ export default async function AdminUsers() {
       <div className="space-y-6 animate-fade-in">
         {/* Header */}
         <div className="animate-scale-in">
-          <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
+          <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white to-slate-200 bg-clip-text text-transparent">
             Manajemen User
           </h1>
-          <p className="text-sm sm:text-base text-slate-600 mt-1">
+          <p className="text-sm sm:text-base text-slate-300 mt-1">
             Kelola semua user yang terdaftar di platform ({users.length} user)
           </p>
         </div>

@@ -20,132 +20,132 @@ export default async function AdminSettings() {
     <DashboardLayout>
       <div className="space-y-6">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Pengaturan Platform</h1>
-          <p className="text-sm sm:text-base text-slate-600">Konfigurasi LinkSphere</p>
+          <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white to-slate-200 bg-clip-text text-transparent">Pengaturan Platform</h1>
+          <p className="text-sm sm:text-base text-slate-300">Konfigurasi LinkSphere</p>
         </div>
 
         {/* Platform Info */}
-        <div className="rounded-lg border border-slate-200 bg-white p-4 sm:p-6 shadow-sm">
+        <div className="rounded-lg border border-slate-700/50 bg-slate-800/50 backdrop-blur p-4 sm:p-6 shadow-slack-md">
           <div className="mb-4 sm:mb-6 flex items-center gap-3">
             <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-lg bg-blue-600">
               <Globe className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
             </div>
             <div>
-              <h2 className="text-lg sm:text-xl font-semibold text-slate-900">Informasi Platform</h2>
-              <p className="text-xs sm:text-sm text-slate-500">Detail tentang LinkSphere</p>
+              <h2 className="text-lg sm:text-xl font-semibold text-white">Informasi Platform</h2>
+              <p className="text-xs sm:text-sm text-slate-400">Detail tentang LinkSphere</p>
             </div>
           </div>
 
           <div className="space-y-4">
-            <div className="flex items-start justify-between border-b border-slate-200 pb-4">
+            <div className="flex items-start justify-between border-b border-slate-700/50 pb-4">
               <div>
-                <p className="text-sm font-medium text-slate-900">Nama Aplikasi</p>
-                <p className="text-sm text-slate-500">Nama platform yang ditampilkan ke user</p>
+                <p className="text-sm font-medium text-white">Nama Aplikasi</p>
+                <p className="text-sm text-slate-400">Nama platform yang ditampilkan ke user</p>
               </div>
-              <div className="rounded-md bg-slate-100 px-4 py-2">
-                <p className="font-medium text-slate-900">LinkSphere</p>
+              <div className="rounded-md bg-slate-700 px-4 py-2">
+                <p className="font-medium text-white">LinkSphere</p>
               </div>
             </div>
 
-            <div className="flex items-start justify-between border-b border-slate-200 pb-4">
+            <div className="flex items-start justify-between border-b border-slate-700/50 pb-4">
               <div>
-                <p className="text-sm font-medium text-slate-900">Versi</p>
-                <p className="text-sm text-slate-500">Versi aplikasi saat ini</p>
+                <p className="text-sm font-medium text-white">Versi</p>
+                <p className="text-sm text-slate-400">Versi aplikasi saat ini</p>
               </div>
-              <div className="rounded-md bg-slate-100 px-4 py-2">
-                <p className="font-medium text-slate-900">1.0.0</p>
+              <div className="rounded-md bg-slate-700 px-4 py-2">
+                <p className="font-medium text-white">1.0.0</p>
               </div>
             </div>
 
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-sm font-medium text-slate-900">Status</p>
-                <p className="text-sm text-slate-500">Status sistem saat ini</p>
+                <p className="text-sm font-medium text-white">Status</p>
+                <p className="text-sm text-slate-400">Status sistem saat ini</p>
               </div>
-              <div className="flex items-center gap-2 rounded-md bg-green-100 px-4 py-2">
-                <div className="h-2 w-2 rounded-full bg-green-600" />
-                <p className="font-medium text-green-700">Online</p>
+              <div className="flex items-center gap-2 rounded-md bg-green-900/30 px-4 py-2 border border-green-700/50">
+                <div className="h-2 w-2 rounded-full bg-green-500" />
+                <p className="font-medium text-green-400">Online</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Features */}
-        <div className="rounded-lg border border-slate-200 bg-white p-4 sm:p-6 shadow-sm">
+        <div className="rounded-lg border border-slate-700/50 bg-slate-800/50 backdrop-blur p-4 sm:p-6 shadow-slack-md">
           <div className="mb-4 sm:mb-6 flex items-center gap-3">
             <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-lg bg-purple-600">
               <Building2 className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
             </div>
             <div>
-              <h2 className="text-lg sm:text-xl font-semibold text-slate-900">Fitur Aktif</h2>
-              <p className="text-xs sm:text-sm text-slate-500">Fitur yang tersedia di platform</p>
+              <h2 className="text-lg sm:text-xl font-semibold text-white">Fitur Aktif</h2>
+              <p className="text-xs sm:text-sm text-slate-400">Fitur yang tersedia di platform</p>
             </div>
           </div>
 
           <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
-            <div className="flex items-center gap-3 rounded-md border border-slate-200 bg-slate-50 p-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-md bg-green-100">
-                <Globe className="h-5 w-5 text-green-600" />
+            <div className="flex items-center gap-3 rounded-md border border-slate-700/50 bg-slate-700/50 p-4">
+              <div className="flex h-10 w-10 items-center justify-center rounded-md bg-green-900/30">
+                <Globe className="h-5 w-5 text-green-400" />
               </div>
               <div>
-                <p className="text-sm font-medium text-slate-900">Public Pages</p>
-                <p className="text-xs text-slate-500">Halaman publik per user</p>
+                <p className="text-sm font-medium text-white">Public Pages</p>
+                <p className="text-xs text-slate-400">Halaman publik per user</p>
               </div>
               <div className="ml-auto">
-                <div className="h-2 w-2 rounded-full bg-green-600" />
+                <div className="h-2 w-2 rounded-full bg-green-500" />
               </div>
             </div>
 
-            <div className="flex items-center gap-3 rounded-md border border-slate-200 bg-slate-50 p-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-md bg-blue-100">
-                <Mail className="h-5 w-5 text-blue-600" />
+            <div className="flex items-center gap-3 rounded-md border border-slate-700/50 bg-slate-700/50 p-4">
+              <div className="flex h-10 w-10 items-center justify-center rounded-md bg-blue-900/30">
+                <Mail className="h-5 w-5 text-blue-400" />
               </div>
               <div>
-                <p className="text-sm font-medium text-slate-900">Multi-User</p>
-                <p className="text-xs text-slate-500">Banyak user dengan dashboard</p>
+                <p className="text-sm font-medium text-white">Multi-User</p>
+                <p className="text-xs text-slate-400">Banyak user dengan dashboard</p>
               </div>
               <div className="ml-auto">
-                <div className="h-2 w-2 rounded-full bg-green-600" />
+                <div className="h-2 w-2 rounded-full bg-green-500" />
               </div>
             </div>
 
-            <div className="flex items-center gap-3 rounded-md border border-slate-200 bg-slate-50 p-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-md bg-orange-100">
-                <Shield className="h-5 w-5 text-orange-600" />
+            <div className="flex items-center gap-3 rounded-md border border-slate-700/50 bg-slate-700/50 p-4">
+              <div className="flex h-10 w-10 items-center justify-center rounded-md bg-orange-900/30">
+                <Shield className="h-5 w-5 text-orange-400" />
               </div>
               <div>
-                <p className="text-sm font-medium text-slate-900">Admin Panel</p>
-                <p className="text-xs text-slate-500">Manajemen lengkap</p>
+                <p className="text-sm font-medium text-white">Admin Panel</p>
+                <p className="text-xs text-slate-400">Manajemen lengkap</p>
               </div>
               <div className="ml-auto">
-                <div className="h-2 w-2 rounded-full bg-green-600" />
+                <div className="h-2 w-2 rounded-full bg-green-500" />
               </div>
             </div>
 
-            <div className="flex items-center gap-3 rounded-md border border-slate-200 bg-slate-50 p-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-md bg-pink-100">
-                <Settings className="h-5 w-5 text-pink-600" />
+            <div className="flex items-center gap-3 rounded-md border border-slate-700/50 bg-slate-700/50 p-4">
+              <div className="flex h-10 w-10 items-center justify-center rounded-md bg-pink-900/30">
+                <Settings className="h-5 w-5 text-pink-400" />
               </div>
               <div>
-                <p className="text-sm font-medium text-slate-900">Customization</p>
-                <p className="text-xs text-slate-500">Tema & personalisasi</p>
+                <p className="text-sm font-medium text-white">Customization</p>
+                <p className="text-xs text-slate-400">Tema & personalisasi</p>
               </div>
               <div className="ml-auto">
-                <div className="h-2 w-2 rounded-full bg-green-600" />
+                <div className="h-2 w-2 rounded-full bg-green-500" />
               </div>
             </div>
           </div>
         </div>
 
         {/* Quick Actions */}
-        <div className="rounded-lg border border-slate-200 bg-white p-4 sm:p-6 shadow-sm">
+        <div className="rounded-lg border border-slate-700/50 bg-slate-800/50 backdrop-blur p-4 sm:p-6 shadow-slack-md">
           <div className="mb-4 sm:mb-6 flex items-center gap-3">
             <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-lg bg-red-600">
               <LogOut className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
             </div>
             <div>
-              <h2 className="text-lg sm:text-xl font-semibold text-slate-900">Aksi Cepat</h2>
-              <p className="text-xs sm:text-sm text-slate-500">Perintah admin</p>
+              <h2 className="text-lg sm:text-xl font-semibold text-white">Aksi Cepat</h2>
+              <p className="text-xs sm:text-sm text-slate-400">Perintah admin</p>
             </div>
           </div>
 
@@ -154,16 +154,16 @@ export default async function AdminSettings() {
               href="/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between rounded-md border border-slate-200 bg-slate-50 p-4 transition-colors hover:bg-slate-100"
+              className="flex items-center justify-between rounded-md border border-slate-700/50 bg-slate-700/50 p-4 transition-colors hover:bg-slate-700"
             >
               <div className="flex items-center gap-3">
-                <Globe className="h-5 w-5 text-slate-600" />
+                <Globe className="h-5 w-5 text-slate-400" />
                 <div>
-                  <p className="text-sm font-medium text-slate-900">Buka Landing Page</p>
-                  <p className="text-xs text-slate-500">Halaman publik LinkSphere</p>
+                  <p className="text-sm font-medium text-white">Buka Landing Page</p>
+                  <p className="text-xs text-slate-400">Halaman publik LinkSphere</p>
                 </div>
               </div>
-              <div className="rounded-md bg-white px-3 py-1 text-xs font-medium text-slate-600 shadow-sm">
+              <div className="rounded-md bg-slate-600 px-3 py-1 text-xs font-medium text-white shadow-sm">
                 Buka
               </div>
             </a>
@@ -171,18 +171,18 @@ export default async function AdminSettings() {
             <form
               action="/api/admin/logout"
               method="POST"
-              className="flex items-center justify-between rounded-md border border-red-200 bg-red-50 p-4 transition-colors hover:bg-red-100"
+              className="flex items-center justify-between rounded-md border border-red-700/50 bg-red-900/20 p-4 transition-colors hover:bg-red-900/30"
             >
               <div className="flex items-center gap-3">
-                <LogOut className="h-5 w-5 text-red-600" />
+                <LogOut className="h-5 w-5 text-red-400" />
                 <div>
-                  <p className="text-sm font-medium text-slate-900">Logout Admin</p>
-                  <p className="text-xs text-slate-500">Keluar dari panel admin</p>
+                  <p className="text-sm font-medium text-white">Logout Admin</p>
+                  <p className="text-xs text-slate-400">Keluar dari panel admin</p>
                 </div>
               </div>
               <button
                 type="submit"
-                className="rounded-md bg-white px-3 py-1 text-xs font-medium text-red-600 shadow-sm transition-colors hover:bg-red-50"
+                className="rounded-md bg-slate-600 px-3 py-1 text-xs font-medium text-red-400 shadow-sm transition-colors hover:bg-slate-500"
               >
                 Logout
               </button>
@@ -191,18 +191,18 @@ export default async function AdminSettings() {
         </div>
 
         {/* Support */}
-        <div className="rounded-lg border border-slate-200 bg-white p-4 sm:p-6 shadow-sm">
-          <h3 className="mb-3 sm:mb-4 text-base sm:text-lg font-semibold text-slate-900">Bantuan & Dukungan</h3>
-          <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-slate-600">
+        <div className="rounded-lg border border-slate-700/50 bg-slate-800/50 backdrop-blur p-4 sm:p-6 shadow-slack-md">
+          <h3 className="mb-3 sm:mb-4 text-base sm:text-lg font-semibold text-white">Bantuan & Dukungan</h3>
+          <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-slate-300">
             <p>
               Jika Anda mengalami masalah atau memiliki pertanyaan tentang LinkSphere, 
               hubungi tim dukungan kami.
             </p>
-            <div className="flex items-center gap-2 rounded-md bg-slate-100 p-4">
-              <Mail className="h-5 w-5 text-slate-600" />
+            <div className="flex items-center gap-2 rounded-md bg-slate-700 p-4">
+              <Mail className="h-5 w-5 text-slate-400" />
               <div>
-                <p className="font-medium text-slate-900">Email Dukungan</p>
-                <p className="text-slate-600">support@linksphere.com</p>
+                <p className="font-medium text-white">Email Dukungan</p>
+                <p className="text-slate-400">support@linksphere.com</p>
               </div>
             </div>
           </div>

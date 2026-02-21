@@ -109,10 +109,10 @@ export default async function AdminStats() {
       <div className="space-y-6 animate-fade-in">
         {/* Header */}
         <div className="animate-scale-in">
-          <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
+          <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white to-slate-200 bg-clip-text text-transparent">
             Statistik Platform
           </h1>
-          <p className="text-sm sm:text-base text-slate-600 mt-1">
+          <p className="text-sm sm:text-base text-slate-300 mt-1">
             Ringkasan data seluruh platform LinkSphere
           </p>
         </div>
@@ -122,19 +122,19 @@ export default async function AdminStats() {
           {statCards.map((card) => (
             <div
               key={card.title}
-              className="group relative overflow-hidden rounded-xl border border-slate-200/60 bg-white p-6 shadow-slack-md transition-all duration-300 hover:shadow-slack-xl hover:-translate-y-1"
+              className="group relative overflow-hidden rounded-xl border border-slate-700/50 bg-slate-800/50 backdrop-blur p-6 shadow-slack-md transition-all duration-300 hover:shadow-slack-xl hover:-translate-y-1"
             >
               {/* Gradient overlay on hover */}
               <div
-                className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-5 pointer-events-none"
+                className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-10 pointer-events-none"
                 style={{ backgroundColor: card.color }}
               />
 
               <div className="relative flex items-center justify-between">
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-slate-600">{card.title}</p>
-                  <p className="mt-2 text-3xl font-bold text-slate-900">{card.value}</p>
-                  <p className="mt-1 text-xs text-slate-500">{card.description}</p>
+                  <p className="text-sm font-medium text-slate-300">{card.title}</p>
+                  <p className="mt-2 text-3xl font-bold text-white">{card.value}</p>
+                  <p className="mt-1 text-xs text-slate-400">{card.description}</p>
                 </div>
                 <div
                   className="flex h-12 w-12 items-center justify-center rounded-xl shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 bg-gradient-to-br"
@@ -159,18 +159,18 @@ export default async function AdminStats() {
 
         {/* Progress Stats */}
         <div className="grid gap-6 md:grid-cols-2 animate-scale-in" style={{ animationDelay: '0.2s' }}>
-          <div className="rounded-xl border border-slate-200/60 bg-white p-6 shadow-slack-md">
-            <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-slate-900">
-              <TrendingUp className="h-5 w-5 text-green-600" />
+          <div className="rounded-xl border border-slate-700/50 bg-slate-800/50 backdrop-blur p-6 shadow-slack-md">
+            <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-white">
+              <TrendingUp className="h-5 w-5 text-green-400" />
               Link Aktif vs Non-Aktif
             </h3>
             <div className="space-y-4">
               <div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-600">Link Aktif</span>
-                  <span className="font-semibold text-slate-900">{stats.activeLinks}</span>
+                  <span className="text-slate-300">Link Aktif</span>
+                  <span className="font-semibold text-white">{stats.activeLinks}</span>
                 </div>
-                <div className="mt-2 h-2 rounded-full bg-slate-200 overflow-hidden">
+                <div className="mt-2 h-2 rounded-full bg-slate-700 overflow-hidden">
                   <div
                     className="h-full rounded-full bg-gradient-to-r from-green-500 to-green-600 transition-all duration-1000"
                     style={{
@@ -181,10 +181,10 @@ export default async function AdminStats() {
               </div>
               <div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-600">Link Non-Aktif</span>
-                  <span className="font-semibold text-slate-900">{stats.inactiveLinks}</span>
+                  <span className="text-slate-300">Link Non-Aktif</span>
+                  <span className="font-semibold text-white">{stats.inactiveLinks}</span>
                 </div>
-                <div className="mt-2 h-2 rounded-full bg-slate-200 overflow-hidden">
+                <div className="mt-2 h-2 rounded-full bg-slate-700 overflow-hidden">
                   <div
                     className="h-full rounded-full bg-gradient-to-r from-slate-400 to-slate-500 transition-all duration-1000"
                     style={{
@@ -196,17 +196,17 @@ export default async function AdminStats() {
             </div>
           </div>
 
-          <div className="rounded-xl border border-slate-200/60 bg-white p-6 shadow-slack-md">
-            <h3 className="mb-4 text-lg font-semibold text-slate-900">
+          <div className="rounded-xl border border-slate-700/50 bg-slate-800/50 backdrop-blur p-6 shadow-slack-md">
+            <h3 className="mb-4 text-lg font-semibold text-white">
               Distribusi User
             </h3>
             <div className="space-y-4">
               <div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-600">Admin</span>
-                  <span className="font-semibold text-slate-900">{stats.adminCount}</span>
+                  <span className="text-slate-300">Admin</span>
+                  <span className="font-semibold text-white">{stats.adminCount}</span>
                 </div>
-                <div className="mt-2 h-2 rounded-full bg-slate-200 overflow-hidden">
+                <div className="mt-2 h-2 rounded-full bg-slate-700 overflow-hidden">
                   <div
                     className="h-full rounded-full bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-1000"
                     style={{
@@ -217,10 +217,10 @@ export default async function AdminStats() {
               </div>
               <div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-600">User Biasa</span>
-                  <span className="font-semibold text-slate-900">{stats.totalUsers - stats.adminCount}</span>
+                  <span className="text-slate-300">User Biasa</span>
+                  <span className="font-semibold text-white">{stats.totalUsers - stats.adminCount}</span>
                 </div>
-                <div className="mt-2 h-2 rounded-full bg-slate-200 overflow-hidden">
+                <div className="mt-2 h-2 rounded-full bg-slate-700 overflow-hidden">
                   <div
                     className="h-full rounded-full bg-gradient-to-r from-slate-500 to-slate-600 transition-all duration-1000"
                     style={{
