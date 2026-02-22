@@ -64,7 +64,7 @@ export function LinksTable({ links, categories }: LinksTableProps) {
             placeholder="Cari link..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10"
+            className="pl-10 bg-slate-700/50 border-slate-600/50 text-white placeholder:text-slate-400 focus:bg-slate-700/70 focus:border-slate-500/50"
           />
         </div>
       </CardHeader>
@@ -100,18 +100,18 @@ export function LinksTable({ links, categories }: LinksTableProps) {
                     </div>
                   </td>
                   <td className="hidden md:table-cell py-2 sm:py-4 pr-2 sm:pr-4 whitespace-nowrap">
-                    <Badge variant="outline" className="text-[10px] sm:text-xs">{link.category?.name || 'N/A'}</Badge>
+                    <Badge variant="category" className="text-[10px] sm:text-xs">{link.category?.name || 'N/A'}</Badge>
                   </td>
                   <td className="hidden sm:table-cell py-2 sm:py-4 pr-2 sm:pr-4 text-slate-300 whitespace-nowrap text-[10px] sm:text-xs">
                     {link.click_count || 0}
                   </td>
                   <td className="py-2 sm:py-4 pr-2 sm:pr-4 whitespace-nowrap">
-                    <Badge variant={link.is_active ? 'default' : 'secondary'} className="text-[10px] sm:text-xs">
+                    <Badge variant={link.is_active ? 'success' : 'warning'} className="text-[10px] sm:text-xs">
                       {link.is_active ? 'Aktif' : 'Nonaktif'}
                     </Badge>
                   </td>
                   <td className="hidden md:table-cell py-2 sm:py-4 pr-2 sm:pr-4 whitespace-nowrap">
-                    <Badge variant={link.is_public ? 'default' : 'secondary'} className="text-[10px] sm:text-xs">
+                    <Badge variant={link.is_public ? 'info' : 'warning'} className="text-[10px] sm:text-xs">
                       {link.is_public ? 'Ya' : 'Tidak'}
                     </Badge>
                   </td>
@@ -121,7 +121,7 @@ export function LinksTable({ links, categories }: LinksTableProps) {
                         size="icon"
                         variant="outline"
                         onClick={() => setEditingLink(link)}
-                        className="h-8 w-8 sm:h-9 sm:w-9"
+                        className="h-8 w-8 sm:h-9 sm:w-9 bg-slate-700/50 border-slate-600/50 text-slate-300 hover:bg-slate-600/50 hover:text-white hover:border-slate-500/50"
                       >
                         <Pencil className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                       </Button>
@@ -129,7 +129,7 @@ export function LinksTable({ links, categories }: LinksTableProps) {
                         size="icon"
                         variant="outline"
                         onClick={() => setDeletingLink(link)}
-                        className="h-8 w-8 sm:h-9 sm:w-9 text-red-400 hover:bg-red-900/30 hover:text-red-300"
+                        className="h-8 w-8 sm:h-9 sm:w-9 bg-slate-700/50 border-slate-600/50 text-red-400 hover:bg-red-900/30 hover:text-red-300 hover:border-red-700/50"
                       >
                         <Trash2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                       </Button>

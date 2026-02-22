@@ -130,7 +130,7 @@ export function LinkFormDialog({ open, onOpenChange, link, categories }: LinkFor
             </Select>
           </div>
 
-          <div className="flex items-center justify-between rounded-lg border border-slate-200 p-4">
+          <div className="flex items-center justify-between rounded-lg border border-slate-600/50 p-4">
             <div className="space-y-0.5">
               <Label htmlFor="is_active" className="text-base">Status</Label>
               <div className="text-sm text-slate-500">

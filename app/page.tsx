@@ -52,7 +52,7 @@ export default function HomePage() {
             </div>
 
             <h1 className="mb-6 text-balance text-5xl font-bold tracking-tight text-slate-900 sm:text-6xl lg:text-7xl bg-gradient-to-r from-slate-900 via-brand-700 to-accent-600 bg-clip-text text-transparent animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              LinkSphere
+              LinkSpread
             </h1>
 
             <p className="mx-auto mb-8 max-w-2xl text-xl text-slate-600 sm:text-2xl animate-fade-in" style={{ animationDelay: '0.2s' }}>
@@ -89,7 +89,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-4xl font-bold text-slate-900">
-              Mengapa LinkSphere?
+              Mengapa LinkSpread?
             </h2>
             <p className="text-xl text-slate-600">
               Fitur lengkap untuk memenuhi kebutuhan link management profesional Anda
@@ -264,7 +264,7 @@ export default function HomePage() {
             Siap Mengelola Link Anda dengan Profesional?
           </h2>
           <p className="mb-10 text-xl text-blue-100 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            Bergabunglah dengan ribuan user yang sudah mempercayai LinkSphere untuk link management mereka.
+            Bergabunglah dengan ribuan user yang sudah mempercayai LinkSpread untuk link management mereka.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <Link href="/register">
@@ -299,7 +299,7 @@ export default function HomePage() {
                 <ExternalLink className="h-6 w-6 text-white" />
               </div>
               <h3 className="text-xl font-bold text-white">
-                LinkSphere
+                LinkSpread
               </h3>
             </div>
 
@@ -323,7 +323,7 @@ export default function HomePage() {
 
             {/* Copyright */}
             <div className="text-xs text-slate-500">
-              © {new Date().getFullYear()} LinkSphere. All rights reserved.
+              © {new Date().getFullYear()} LinkSpread. All rights reserved.
             </div>
           </div>
         </div>

@@ -9,9 +9,9 @@ const _geist = Geist({ subsets: ['latin'] })
 const _geistMono = Geist_Mono({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'LinkSphere - Platform Link Management Profesional',
+  title: 'LinkSpread - Platform Link Management Profesional',
   description: 'Platform link management profesional yang memungkinkan Anda mengatur, berbagi, dan menampilkan link penting dengan cara yang elegan dan personal.',
-  generator: 'LinkSphere',
+  generator: 'LinkSpread',
 }
 
 export default function RootLayout({

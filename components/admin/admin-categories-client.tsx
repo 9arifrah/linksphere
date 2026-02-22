@@ -213,6 +213,7 @@ export function AdminCategoriesClient({ initialCategories }: AdminCategoriesClie
                     }
                     placeholder="Contoh: Media Sosial"
                     required
+                    className="bg-slate-700/50 border-slate-600/50 text-white placeholder:text-slate-400 focus:bg-slate-700/70 focus:border-slate-500/50"
                   />
                 </div>
 
@@ -230,6 +231,7 @@ export function AdminCategoriesClient({ initialCategories }: AdminCategoriesClie
                     }
                     placeholder="Jelaskan kategori ini..."
                     rows={3}
+                    className="bg-slate-700/50 border-slate-600/50 text-white placeholder:text-slate-400 focus:bg-slate-700/70 focus:border-slate-500/50"
                   />
                 </div>
 
@@ -247,6 +249,7 @@ export function AdminCategoriesClient({ initialCategories }: AdminCategoriesClie
                       })
                     }
                     placeholder="0"
+                    className="bg-slate-700/50 border-slate-600/50 text-white placeholder:text-slate-400 focus:bg-slate-700/70 focus:border-slate-500/50"
                   />
                 </div>
 
@@ -255,6 +258,7 @@ export function AdminCategoriesClient({ initialCategories }: AdminCategoriesClie
                     type="button"
                     variant="outline"
                     onClick={() => setOpen(false)}
+                    className="bg-slate-700/50 border-slate-600/50 text-slate-300 hover:bg-slate-600/50 hover:text-white hover:border-slate-500/50"
                   >
                     Batal
                   </Button>
@@ -289,6 +293,7 @@ export function AdminCategoriesClient({ initialCategories }: AdminCategoriesClie
                 <Button
                   variant="outline"
                   onClick={() => setDeleteConfirm(null)}
+                  className="bg-slate-700/50 border-slate-600/50 text-slate-300 hover:bg-slate-600/50 hover:text-white hover:border-slate-500/50"
                 >
                   Batal
                 </Button>
