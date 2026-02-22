@@ -62,7 +62,7 @@ export function PublicPageHeader({ displayName, settings }: PublicPageHeaderProp
       )}
       {!settings.logo_url && (
         <div
-          className="mb-6 inline-flex h-28 w-28 items-center justify-center rounded-2xl text-4xl shadow-xl border border-white/50 transition-all duration-300 hover:scale-105 animate-float"
+          className="mb-6 inline-flex h-28 w-28 items-center justify-center rounded-2xl text-4xl shadow-xl border border-white/50 transition-all hover:scale-105 animate-float"
           style={{ backgroundColor: themeColor }}
         >
           <ExternalLink className="h-14 w-14 text-white" />
