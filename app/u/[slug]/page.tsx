@@ -210,7 +210,7 @@ export default async function PublicUserPage({ params }: { params: Promise<{ slu
           <p>
             Powered by{' '}
             <a href="/" className="text-slate-700 hover:underline hover:text-slate-900 transition-colors">
-              LinkSphere
+              LinkSpread
             </a>
           </p>
           <p className="mt-2">© {new Date().getFullYear()}</p>

@@ -2,8 +2,6 @@
  * SEO utilities for metadata generation
  */
 
-'use client'
-
 import type { Metadata } from 'next'
 
 /**
