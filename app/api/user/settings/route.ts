@@ -36,6 +36,9 @@ export async function PATCH(request: NextRequest) {
       show_categories
     } = validationResult.data
 
+    // Convert empty string to null for optional fields
+    const finalLogoUrl = logo_url === '' ? null : logo_url
+
     // Check if settings exist for user
     const { data: existingSettings } = await supabase
       .from('user_settings')
@@ -49,7 +52,7 @@ export async function PATCH(request: NextRequest) {
       const updateData: any = { user_id: userId }
       if (profile_description !== undefined) updateData.profile_description = profile_description
       if (page_title !== undefined) updateData.page_title = page_title
-      if (logo_url !== undefined) updateData.logo_url = logo_url
+      if (logo_url !== undefined) updateData.logo_url = finalLogoUrl
       if (theme_color !== undefined) updateData.theme_color = theme_color
       if (show_categories !== undefined) updateData.show_categories = show_categories
       updateData.updated_at = new Date().toISOString()
@@ -70,7 +73,7 @@ export async function PATCH(request: NextRequest) {
           user_id: userId,
           profile_description,
           page_title,
-          logo_url,
+          logo_url: finalLogoUrl,
           theme_color: theme_color || '#2563eb',
           show_categories: show_categories ?? true
         })
