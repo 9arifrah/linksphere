@@ -3,6 +3,48 @@ import { supabase } from '@/lib/supabase'
 import { getUserSession } from '@/lib/auth'
 import { userSettingsSchema } from '@/lib/validation'
 
+// GET user settings
+export async function GET() {
+  try {
+    const session = await getUserSession()
+
+    if (!session) {
+      return NextResponse.json(
+        { error: 'Unauthorized' },
+        { status: 401 }
+      )
+    }
+
+    const userId = session.userId
+
+    const { data: settings, error } = await supabase
+      .from('user_settings')
+      .select('*')
+      .eq('user_id', userId)
+      .single()
+
+    if (error) {
+      console.error('[v0] Error fetching user settings:', error)
+      // Return empty settings if not found (first time user)
+      if (error.code === 'PGRST116') {
+        return NextResponse.json({ settings: null })
+      }
+      return NextResponse.json(
+        { error: 'Gagal mengambil pengaturan' },
+        { status: 500 }
+      )
+    }
+
+    return NextResponse.json({ settings })
+  } catch (error) {
+    console.error('[v0] Error in user settings GET:', error)
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
+  }
+}
+
 // PATCH update user settings
 export async function PATCH(request: NextRequest) {
   try {

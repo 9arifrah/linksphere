@@ -2,6 +2,44 @@ import { NextRequest, NextResponse } from 'next/server'
 import { supabase } from '@/lib/supabase'
 import { getUserSession } from '@/lib/auth'
 
+// GET user profile
+export async function GET() {
+  try {
+    const session = await getUserSession()
+
+    if (!session) {
+      return NextResponse.json(
+        { error: 'Unauthorized' },
+        { status: 401 }
+      )
+    }
+
+    const userId = session.userId
+
+    const { data: user, error } = await supabase
+      .from('users')
+      .select('id, email, display_name, custom_slug')
+      .eq('id', userId)
+      .single()
+
+    if (error) {
+      console.error('[v0] Error fetching user profile:', error)
+      return NextResponse.json(
+        { error: 'Gagal mengambil profil' },
+        { status: 500 }
+      )
+    }
+
+    return NextResponse.json({ user })
+  } catch (error) {
+    console.error('[v0] Error in user profile GET:', error)
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
+  }
+}
+
 // PATCH update user profile
 export async function PATCH(request: NextRequest) {
   try {
