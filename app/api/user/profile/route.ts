@@ -1,17 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { supabase } from '@/lib/supabase'
-import { cookies } from 'next/headers'
-
-async function getUserSession() {
-  const cookieStore = await cookies()
-  const session = cookieStore.get('user_session')
-  
-  if (!session) {
-    return null
-  }
-  
-  return session.value
-}
+import { getUserSession } from '@/lib/auth'
 
 // PATCH update user profile
 export async function PATCH(request: NextRequest) {
@@ -45,8 +34,8 @@ export async function PATCH(request: NextRequest) {
       }
     }
 
-    // Build update data
-    const updateData: any = { id: userId }
+    // Build update data (only include fields that should be updated)
+    const updateData: any = {}
     if (display_name !== undefined) updateData.display_name = display_name
     if (custom_slug !== undefined) updateData.custom_slug = custom_slug
 
