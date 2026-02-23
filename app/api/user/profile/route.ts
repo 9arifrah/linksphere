@@ -5,14 +5,16 @@ import { getUserSession } from '@/lib/auth'
 // PATCH update user profile
 export async function PATCH(request: NextRequest) {
   try {
-    const userId = await getUserSession()
+    const session = await getUserSession()
     
-    if (!userId) {
+    if (!session) {
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
       )
     }
+
+    const userId = session.userId
 
     const body = await request.json()
     const { display_name, custom_slug } = body
