@@ -7,6 +7,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Exclude native modules that can't run on Vercel serverless
+  serverExternalPackages: ['better-sqlite3'],
   allowedDevOrigins: [
     'local-origin.dev',
     '*.local-origin.dev',
