@@ -6,11 +6,12 @@
 ALTER TABLE links
 ADD COLUMN qr_code TEXT;
 
--- Create index for qr_code (only where qr_code is not null for efficiency)
--- This helps with queries that filter links with QR codes
-CREATE INDEX IF NOT EXISTS idx_links_qr_code
-ON links(qr_code)
-WHERE qr_code IS NOT NULL;
+-- NOTE: We intentionally do NOT create a btree index on qr_code because
+-- base64 SVG QR code data can exceed PostgreSQL's btree index row size limit
+-- (2704 bytes). A partial btree index fails with:
+-- "index row size XXXX exceeds btree version 4 maximum 2704"
+-- Instead, queries checking for QR code existence use sequential scans,
+-- which is fine given the relatively small number of rows.
 
 -- Add comment for documentation
 COMMENT ON COLUMN links.qr_code IS 'Base64-encoded SVG QR code data URI for the link URL';
@@ -18,4 +19,5 @@ COMMENT ON COLUMN links.qr_code IS 'Base64-encoded SVG QR code data URI for the 
 -- Migration complete
 -- Note: Existing links will have NULL qr_code values.
 -- New links will have QR codes auto-generated via API.
--- Existing links will generate QR codes on next update.
+-- Existing links can get QR codes via admin backfill:
+-- POST /api/admin/backfill { "type": "qr_code" }

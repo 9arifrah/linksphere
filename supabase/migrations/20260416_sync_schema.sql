@@ -100,7 +100,9 @@ CREATE INDEX IF NOT EXISTS idx_links_user_id ON links(user_id);
 CREATE INDEX IF NOT EXISTS idx_links_category_id ON links(category_id);
 CREATE INDEX IF NOT EXISTS idx_links_is_public ON links(is_public);
 CREATE INDEX IF NOT EXISTS idx_links_is_active ON links(is_active);
-CREATE INDEX IF NOT EXISTS idx_links_qr_code ON links(qr_code) WHERE qr_code IS NOT NULL;
+-- Note: idx_links_qr_code is intentionally NOT created because QR code data
+-- (base64 SVG) can exceed PostgreSQL btree index row size limit (2704 bytes).
+-- Use sequential scan for QR code existence checks instead.
 CREATE INDEX IF NOT EXISTS idx_links_short_code ON links(short_code) WHERE short_code IS NOT NULL;
 CREATE INDEX IF NOT EXISTS idx_categories_user_id ON categories(user_id);
 CREATE INDEX IF NOT EXISTS idx_user_settings_user_id ON user_settings(user_id);
