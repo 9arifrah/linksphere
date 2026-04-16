@@ -2,7 +2,7 @@ import { DatabaseClient } from './db-types'
 import { sqliteClient } from './db-sqlite'
 
 // Database type from environment
-const DB_TYPE = process.env.DB_TYPE || 'sqlite'
+const DB_TYPE = process.env.DB_TYPE || 'supabase'
 
 let dbClient: DatabaseClient
 
