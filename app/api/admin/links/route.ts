@@ -36,18 +36,30 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const { title, url, category_id, is_public, user_id } = validationResult.data
+    const { title, url, description, category_id, is_public, is_active, short_code } = validationResult.data
 
-    // Generate short code for new links
-    const shortCode = await db.generateShortCode(6)
+    // Admin must specify which user this link belongs to
+    const user_id = body.user_id
+    if (!user_id) {
+      return NextResponse.json(
+        { error: 'user_id wajib diisi' },
+        { status: 400 }
+      )
+    }
+
+    // Generate short code if not provided
+    const finalShortCode = short_code || await db.generateShortCode(6)
 
     const link = await db.adminCreateLink({
       id: crypto.randomUUID(),
       title,
       url,
+      description: description || null,
       category_id,
       is_public,
-      user_id: user_id || null
+      is_active: is_active ?? true,
+      short_code: finalShortCode,
+      user_id
     })
 
     return NextResponse.json({ success: true, data: link })
