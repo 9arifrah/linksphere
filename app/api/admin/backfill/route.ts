@@ -5,8 +5,10 @@ import { generateQRCode } from '@/lib/qr-code'
 
 /**
  * POST /api/admin/backfill
- * Backfill short_code and qr_code for existing links that don't have them.
- * This is a one-time admin operation.
+ * Backfill short_code and/or qr_code for existing links that don't have them.
+ * This is a one-time admin operation for data migration.
+ * 
+ * Body: { type: 'short_code' | 'qr_code' | 'all' }
  */
 export async function POST(request: NextRequest) {
   const session = await getVerifiedAdminSession()
@@ -15,7 +17,7 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const { type } = await request.json().catch(() => ({ type: 'all' }))
+    const { type = 'all' } = await request.json().catch(() => ({}))
 
     let shortCodesGenerated = 0
     let qrCodesGenerated = 0
@@ -32,14 +34,21 @@ export async function POST(request: NextRequest) {
             const shortCode = await db.generateShortCode(6)
             await db.adminUpdateLink(link.id, { short_code: shortCode })
             shortCodesGenerated++
+            console.log(`[backfill] Link "${link.title}" (${link.id}): short_code = ${shortCode}`)
           } catch (err: any) {
-            // Check if it's a unique constraint violation - try with longer code
+            // If unique constraint violation, try with longer code
             if (err?.message?.includes('duplicate') || err?.message?.includes('unique') || err?.code === '23505') {
-              const shortCode = await db.generateShortCode(8)
-              await db.adminUpdateLink(link.id, { short_code: shortCode })
-              shortCodesGenerated++
+              try {
+                const shortCode = await db.generateShortCode(8)
+                await db.adminUpdateLink(link.id, { short_code: shortCode })
+                shortCodesGenerated++
+                console.log(`[backfill] Link "${link.title}" (${link.id}): short_code = ${shortCode} (8 chars, retry)`)
+              } catch (retryErr) {
+                console.error(`[backfill] Failed short_code for link ${link.id} (retry):`, retryErr)
+                errors++
+              }
             } else {
-              console.error(`[backfill] Failed to generate short code for link ${link.id}:`, err)
+              console.error(`[backfill] Failed short_code for link ${link.id}:`, err)
               errors++
             }
           }
@@ -51,8 +60,9 @@ export async function POST(request: NextRequest) {
             const qrCode = await generateQRCode(link.url)
             await db.adminUpdateLink(link.id, { qr_code: qrCode })
             qrCodesGenerated++
+            console.log(`[backfill] Link "${link.title}" (${link.id}): QR code generated`)
           } catch (err) {
-            console.error(`[backfill] Failed to generate QR code for link ${link.id}:`, err)
+            console.error(`[backfill] Failed QR code for link ${link.id}:`, err)
             errors++
           }
         }
@@ -61,6 +71,8 @@ export async function POST(request: NextRequest) {
         errors++
       }
     }
+
+    console.log(`[backfill] Complete: ${shortCodesGenerated} short codes, ${qrCodesGenerated} QR codes, ${errors} errors`)
 
     return NextResponse.json({
       success: true,

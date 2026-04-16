@@ -1,6 +1,7 @@
 import { getVerifiedAdminSession } from '@/lib/admin-auth'
 import { redirect } from 'next/navigation'
 import { DashboardLayout } from '@/components/admin/dashboard-layout'
+import { BackfillActions } from '@/components/admin/backfill-actions'
 import { Settings, LogOut, Globe, Mail, Building2, Shield } from 'lucide-react'
 
 async function checkAuth() {
@@ -189,6 +190,9 @@ export default async function AdminSettings() {
             </form>
           </div>
         </div>
+
+        {/* Data Migration / Backfill */}
+        <BackfillActions />
 
         {/* Support */}
         <div className="rounded-lg border border-slate-700/50 bg-slate-800/50 backdrop-blur p-4 sm:p-6 shadow-slack-md">
