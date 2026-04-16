@@ -1,0 +1,1 @@
+export { IconPicker } from '@/components/shared/icon-picker'
